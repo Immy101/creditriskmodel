@@ -4,6 +4,8 @@ import polars as pl
 import streamlit as st
 import pandas as pd
 import joblib 
+
+#joblib ensures the loading of pkl files
 df=pl.scan_csv('german_credit_data.csv')
 model = joblib.load("basics/extra_trees_credit_model.pkl")
 encoders = {col : joblib.load(f"basics/{col}_encoder.pkl") for col in ["Sex", "Housing", "Saving accounts", "Checking account"]}
